@@ -8,47 +8,6 @@ React Native (Expo)-app för att hålla koll på bilrelaterade utgifter. Använd
 - npm eller yarn
 - Expo Go-app på telefon (valfritt) eller Android/iOS-simulator
 
-## Supabase-setup
-
-1. Skapa ett projekt på [supabase.com](https://supabase.com).
-2. Gå till **SQL Editor** och kör innehållet i:
-   - `supabase/schema.sql` (tabeller och RLS)
-   - `supabase/seed_expense_categories.sql` (kategorier: Bränsle, Service, etc.)
-3. Gå till **Project Settings → API** och kopiera:
-   - Project URL
-   - anon public key
-
-## Lokal körning
-
-1. Klona/öppna projektet och installera beroenden (Expo SDK 54):
-
-   ```bash
-   npm install
-   npx expo install --fix
-   ```
-
-2. Skapa filen `.env` i projektets rot (kopiera från `.env.example`):
-
-   ```
-   EXPO_PUBLIC_SUPABASE_URL=https://ditt-projekt.supabase.co
-   EXPO_PUBLIC_SUPABASE_ANON_KEY=din-anon-key
-   ```
-
-3. Starta Expo:
-
-   ```bash
-   npx expo start
-   ```
-
-4. Skanna QR-koden med Expo Go eller tryck `a` (Android) / `i` (iOS) för simulator.
-
-   **Om inget händer när du skannar QR-koden** (telefon och dator på olika nätverk eller brandvägg): starta med tunnel så att telefonen når Metro via internet:
-
-   ```bash
-   npx expo start --tunnel
-   ```
-
-   Skanna sedan den nya QR-koden med Expo Go.
 
 ## Funktioner
 
