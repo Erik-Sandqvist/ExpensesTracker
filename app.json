@@ -13,7 +13,10 @@
     },
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.expensestracker.bilutgifter"
+      "bundleIdentifier": "com.expensestracker.bilutgifter",
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -24,11 +27,12 @@
     },
     "extra": {
       "eas": {
-        "projectId": ""
+        "projectId": "89fd4811-a73e-435d-a50c-24caaff43235"
       }
     },
     "plugins": [
       "expo-asset"
-    ]
+    ],
+    "owner": "eriksandqvist"
   }
 }

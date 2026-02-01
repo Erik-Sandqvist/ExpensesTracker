@@ -107,11 +107,28 @@ export function ExpensesListScreen() {
           text: 'Ta bort',
           style: 'destructive',
           onPress: async () => {
-            const { error } = await supabase.from('expenses').delete().eq('id', expense.id);
-            if (error) {
-              Alert.alert('Fel', error.message);
-            } else {
-              await fetchExpenses();
+            try {
+              console.log('Deleting expense:', expense.id, 'user_id:', user?.id);
+              
+              // Ta bort från databasen
+              const { error, count } = await supabase
+                .from('expenses')
+                .delete()
+                .eq('id', expense.id);
+              
+              console.log('Delete response - count:', count, 'error:', error);
+              
+              if (error) {
+                console.error('Delete error:', error);
+                Alert.alert('Fel', 'Kunde inte ta bort utgiften: ' + error.message);
+              } else {
+                // Uppdatera UI direkt genom att ta bort från state
+                setExpenses(expenses.filter(e => e.id !== expense.id));
+                Alert.alert('Klar', 'Utgiften har tagits bort');
+              }
+            } catch (err) {
+              console.error('Delete exception:', err);
+              Alert.alert('Fel', 'Ett oväntat fel inträffade');
             }
           },
         },
@@ -305,7 +322,7 @@ const styles = StyleSheet.create({
     padding: 16,
   },
   deleteBtnText: {
-    color: '#e74c3c',
+    color: '#e73c3cff',
     fontSize: 14,
   },
   empty: {

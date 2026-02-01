@@ -47,7 +47,7 @@ export function RegisterScreen() {
     } else {
       Alert.alert(
         'Konto skapat',
-        'Kontrollera din e-post för att verifiera (om aktiverat). Du kan nu logga in.',
+        'Du kan nu logga in med ditt nya konto.',
         [{ text: 'OK', onPress: () => navigation.navigate('Login') }]
       );
     }
